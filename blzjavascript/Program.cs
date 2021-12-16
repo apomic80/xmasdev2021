@@ -1,15 +1,16 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using blzcomponents;
-using blzcomponents.Services;
-using blzwasm.Client.Services;
+using blzjavascript;
+using blzcomponents.Pages;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
-builder.RootComponents.Add<App>("#app");
+
+//builder.RootComponents.Add<App>("#app");
+//builder.RootComponents.RegisterForJavaScript<Counter>(identifier: "counter", javaScriptInitializer: "loadApp");
+builder.RootComponents.RegisterAsCustomElement<Counter>("xmasdev-counter");
 
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-builder.Services.AddScoped<IDataService, DataService>();
 
 await builder.Build().RunAsync();

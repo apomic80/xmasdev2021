@@ -10,8 +10,6 @@ namespace blzserver.Services
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-        public string AppTitle => "cdays21.blzsrv";
-
         public Task<WeatherForecast[]> GetForecastAsync()
         {
             var startDate = DateTime.Now;

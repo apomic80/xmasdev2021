@@ -13,8 +13,6 @@ namespace blzwasm.Client.Services
             _httpClient = httpClient;
         }
 
-        public string AppTitle => "cdays21.wasm";
-
         public Task<WeatherForecast[]> GetForecastAsync()
         {
             return _httpClient.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
